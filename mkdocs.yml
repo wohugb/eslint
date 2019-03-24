@@ -1,0 +1,386 @@
+site_name: 微信第三方文档
+site_description: 微信第三方文档
+site_author: Nosy
+
+copyright: "@2018 wxdocs.github.io"
+
+repo_name: wxdocs
+repo_url: https://github.com/wxdocs
+edit_uri: ""
+
+theme:
+    name: material
+
+    include_search_page: false
+    search_index_only: true
+
+    language: zh
+    feature:
+        tabs: true
+    palette:
+        primary: indigo
+        accent: indigo
+    font:
+        text: Roboto
+        code: Roboto Mono
+    favicon: assets/images/favicon.png
+    logo:
+        icon: "\uE80C"
+    extra_css: [assets/stylesheets/extra.css]
+extra:
+    search:
+        language: "jp"
+    social:
+        - type: globe
+          link: http://wohugb.github.io
+        - type: github-alt
+          link: https://github.com/wohugb
+        - type: twitter
+          link: https://twitter.com/wohugb
+        - type: linkedin
+          link: https://linkedin.com/in/wohugb
+
+markdown_extensions:
+    - admonition
+    - codehilite:
+          linenums: false
+    - footnotes
+    - meta
+    - toc:
+          permalink: true
+    - pymdownx.superfences
+    - pymdownx.details
+
+nav:
+    - 首页: index.md
+    - 关于: about/index.md
+    - 用户引导:
+          - 关于: user-guide/README.md
+          - 入门: user-guide/getting-started.md
+          - 配置ESLint: user-guide/configuring.md
+          - 命令行界面: user-guide/command-line-interface.md
+          - 集成: user-guide/integrations.md
+          - 迁移到v1.0.0: user-guide/migrating-to-1.0.0.md
+          - 迁移到v2.0.0: user-guide/migrating-to-2.0.0.md
+          - 迁移到v3.0.0: user-guide/migrating-to-3.0.0.md
+          - 迁移到v4.0.0: user-guide/migrating-to-4.0.0.md
+          - 迁移到v5.0.0: user-guide/migrating-to-5.0.0.md
+          - 从JSCS迁移: user-guide/migrating-from-jscs.md
+          - 规则弃用: user-guide/rule-deprecation.md
+    - 开发者引导:
+          - README: developer-guide/README.md
+          - 结构: developer-guide/architecture.md
+          - 代码约定: developer-guide/code-conventions.md
+          - 代码路径分析: developer-guide/code-path-analysis.md
+          - 发展环境: developer-guide/development-environment.md
+          - nodejs api: developer-guide/nodejs-api.md
+          - 范围管理器界面: developer-guide/scope-manager-interface.md
+          - 选择: developer-guide/selectors.md
+          - 可共享的配置: developer-guide/shareable-configs.md
+          - 源代码: developer-guide/source-code.md
+          - 单元测试: developer-guide/unit-tests.md
+          - 使用自定义格式化程序: developer-guide/working-with-custom-formatters.md
+          - 使用自定义解析器: developer-guide/working-with-custom-parsers.md
+          - 使用插件: developer-guide/working-with-plugins.md
+          - 使用规则已弃用: developer-guide/working-with-rules-deprecated.md
+          - 使用规则: developer-guide/working-with-rules.md
+          - 代码路径分析: developer-guide/code-path-analysis/README.md
+    - 贡献:
+          - 自述: developer-guide/contributing/README.md
+          - 变化: developer-guide/contributing/changes.md
+          - 新规则: developer-guide/contributing/new-rules.md
+          - 拉请求: developer-guide/contributing/pull-requests.md
+          - 报告错误: developer-guide/contributing/reporting-bugs.md
+          - 规则变化: developer-guide/contributing/rule-changes.md
+          - 处理问题: developer-guide/contributing/working-on-issues.md
+    - 维护人员:
+          - 自述: maintainer-guide/README.md
+          - 治理: maintainer-guide/governance.md
+          - 问题: maintainer-guide/issues.md
+          - npm-2fa: maintainer-guide/npm-2fa.md
+          - 拉请求: maintainer-guide/pullrequests.md
+          - 发布: maintainer-guide/releases.md
+    - 规则:
+          - 存取对: rules/accessor-pairs.md
+          - 数组支架换行: rules/array-bracket-newline.md
+          - 数组括号间距: rules/array-bracket-spacing.md
+          - 数组回调返回: rules/array-callback-return.md
+          - 数组元素换行符: rules/array-element-newline.md
+          - 箭身体风格: rules/arrow-body-style.md
+          - 家里的父母: rules/arrow-parens.md
+          - 箭头间距: rules/arrow-spacing.md
+          - 块范围变量: rules/block-scoped-var.md
+          - 块间​​距: rules/block-spacing.md
+          - 支撑式: rules/brace-style.md
+          - 回调返回: rules/callback-return.md
+          - 骆驼香烟盒: rules/camelcase.md
+          - 大写评论: rules/capitalized-comments.md
+          - 类方法使用这个: rules/class-methods-use-this.md
+          - 段落: rules/comma-dangle.md
+          - 逗号间距: rules/comma-spacing.md
+          - 逗号风格: rules/comma-style.md
+          - 复杂: rules/complexity.md
+          - 计算属性间距: rules/computed-property-spacing.md
+          - 一致的回报: rules/consistent-return.md
+          - 一致的: rules/consistent-this.md
+          - 超级建设者: rules/constructor-super.md
+          - 卷曲: rules/curly.md
+          - 默认情况: rules/default-case.md
+          - 点位置: rules/dot-location.md
+          - 点符号: rules/dot-notation.md
+          - eol最后: rules/eol-last.md
+          - eqeqeq: rules/eqeqeq.md
+          - for direction: rules/for-direction.md
+          - func call spacing: rules/func-call-spacing.md
+          - func name matching: rules/func-name-matching.md
+          - func names: rules/func-names.md
+          - func style: rules/func-style.md
+          - function paren newline: rules/function-paren-newline.md
+          - generator star spacing: rules/generator-star-spacing.md
+          - generator star: rules/generator-star.md
+          - getter return: rules/getter-return.md
+          - global require: rules/global-require.md
+          - global strict: rules/global-strict.md
+          - guard for in: rules/guard-for-in.md
+          - handle callback err: rules/handle-callback-err.md
+          - id blacklist: rules/id-blacklist.md
+          - id length: rules/id-length.md
+          - id match: rules/id-match.md
+          - implicit arrow linebreak: rules/implicit-arrow-linebreak.md
+          - indent legacy: rules/indent-legacy.md
+          - indent: rules/indent.md
+          - init declarations: rules/init-declarations.md
+          - jsx quotes: rules/jsx-quotes.md
+          - key spacing: rules/key-spacing.md
+          - keyword spacing: rules/keyword-spacing.md
+          - line comment position: rules/line-comment-position.md
+          - linebreak style: rules/linebreak-style.md
+          - 评论周围的线条: rules/lines-around-comment.md
+          - lines around directive: rules/lines-around-directive.md
+          - lines between class members: rules/lines-between-class-members.md
+          - max classes per file: rules/max-classes-per-file.md
+          - max depth: rules/max-depth.md
+          - max len: rules/max-len.md
+          - max lines per function: rules/max-lines-per-function.md
+          - max lines: rules/max-lines.md
+          - max nested callbacks: rules/max-nested-callbacks.md
+          - max params: rules/max-params.md
+          - max statements per line: rules/max-statements-per-line.md
+          - max statements: rules/max-statements.md
+          - multiline comment style: rules/multiline-comment-style.md
+          - multiline ternary: rules/multiline-ternary.md
+          - new cap: rules/new-cap.md
+          - new parens: rules/new-parens.md
+          - newline after var: rules/newline-after-var.md
+          - newline before return: rules/newline-before-return.md
+          - newline per chained call: rules/newline-per-chained-call.md
+          - no alert: rules/no-alert.md
+          - no array constructor: rules/no-array-constructor.md
+          - no arrow condition: rules/no-arrow-condition.md
+          - no async promise executor: rules/no-async-promise-executor.md
+          - no await in loop: rules/no-await-in-loop.md
+          - no bitwise: rules/no-bitwise.md
+          - no buffer constructor: rules/no-buffer-constructor.md
+          - no caller: rules/no-caller.md
+          - no case declarations: rules/no-case-declarations.md
+          - no catch shadow: rules/no-catch-shadow.md
+          - no class assign: rules/no-class-assign.md
+          - no comma dangle: rules/no-comma-dangle.md
+          - no compare neg zero: rules/no-compare-neg-zero.md
+          - no cond assign: rules/no-cond-assign.md
+          - no confusing arrow: rules/no-confusing-arrow.md
+          - no console: rules/no-console.md
+          - no const assign: rules/no-const-assign.md
+          - no constant condition: rules/no-constant-condition.md
+          - no continue: rules/no-continue.md
+          - no control regex: rules/no-control-regex.md
+          - no debugger: rules/no-debugger.md
+          - no delete var: rules/no-delete-var.md
+          - no div regex: rules/no-div-regex.md
+          - no dupe args: rules/no-dupe-args.md
+          - no dupe class members: rules/no-dupe-class-members.md
+          - no dupe keys: rules/no-dupe-keys.md
+          - no duplicate case: rules/no-duplicate-case.md
+          - no duplicate imports: rules/no-duplicate-imports.md
+          - no else return: rules/no-else-return.md
+          - no empty character class: rules/no-empty-character-class.md
+          - no empty class: rules/no-empty-class.md
+          - no empty function: rules/no-empty-function.md
+          - no empty label: rules/no-empty-label.md
+          - no empty pattern: rules/no-empty-pattern.md
+          - no empty: rules/no-empty.md
+          - no eq null: rules/no-eq-null.md
+          - no eval: rules/no-eval.md
+          - no ex assign: rules/no-ex-assign.md
+          - no extend native: rules/no-extend-native.md
+          - no extra bind: rules/no-extra-bind.md
+          - no extra boolean cast: rules/no-extra-boolean-cast.md
+          - no extra label: rules/no-extra-label.md
+          - no extra parens: rules/no-extra-parens.md
+          - no extra semi: rules/no-extra-semi.md
+          - no extra strict: rules/no-extra-strict.md
+          - no fallthrough: rules/no-fallthrough.md
+          - no floating decimal: rules/no-floating-decimal.md
+          - no func assign: rules/no-func-assign.md
+          - no global assign: rules/no-global-assign.md
+          - no implicit coercion: rules/no-implicit-coercion.md
+          - no implicit globals: rules/no-implicit-globals.md
+          - no implied eval: rules/no-implied-eval.md
+          - no inline comments: rules/no-inline-comments.md
+          - no inner declarations: rules/no-inner-declarations.md
+          - no invalid regexp: rules/no-invalid-regexp.md
+          - no invalid this: rules/no-invalid-this.md
+          - no irregular whitespace: rules/no-irregular-whitespace.md
+          - no iterator: rules/no-iterator.md
+          - no label var: rules/no-label-var.md
+          - no labels: rules/no-labels.md
+          - no lone blocks: rules/no-lone-blocks.md
+          - no lonely if: rules/no-lonely-if.md
+          - no loop func: rules/no-loop-func.md
+          - no magic numbers: rules/no-magic-numbers.md
+          - no misleading character class: rules/no-misleading-character-class.md
+          - no mixed operators: rules/no-mixed-operators.md
+          - no mixed requires: rules/no-mixed-requires.md
+          - no mixed-spaces and tabs: rules/no-mixed-spaces-and-tabs.md
+          - no multi assign: rules/no-multi-assign.md
+          - no multi spaces: rules/no-multi-spaces.md
+          - no multi str: rules/no-multi-str.md
+          - no multiple empty lines: rules/no-multiple-empty-lines.md
+          - no native reassign: rules/no-native-reassign.md
+          - no negated condition: rules/no-negated-condition.md
+          - no negated in lhs: rules/no-negated-in-lhs.md
+          - no nested ternary: rules/no-nested-ternary.md
+          - no new func: rules/no-new-func.md
+          - no new object: rules/no-new-object.md
+          - no new require: rules/no-new-require.md
+          - no new symbol: rules/no-new-symbol.md
+          - no new wrappers: rules/no-new-wrappers.md
+          - no new: rules/no-new.md
+          - no obj calls: rules/no-obj-calls.md
+          - no octal escape: rules/no-octal-escape.md
+          - no octal: rules/no-octal.md
+          - no param reassign: rules/no-param-reassign.md
+          - no path concat: rules/no-path-concat.md
+          - no plusplus: rules/no-plusplus.md
+          - no process env: rules/no-process-env.md
+          - no process exit: rules/no-process-exit.md
+          - no proto: rules/no-proto.md
+          - no prototype builtins: rules/no-prototype-builtins.md
+          - no redeclare: rules/no-redeclare.md
+          - no regex spaces: rules/no-regex-spaces.md
+          - no reserved keys: rules/no-reserved-keys.md
+          - no restricted globals: rules/no-restricted-globals.md
+          - no restricted imports: rules/no-restricted-imports.md
+          - no restricted modules: rules/no-restricted-modules.md
+          - no restricted properties: rules/no-restricted-properties.md
+          - no restricted syntax: rules/no-restricted-syntax.md
+          - no return assign: rules/no-return-assign.md
+          - no return await: rules/no-return-await.md
+          - no script url: rules/no-script-url.md
+          - no self assign: rules/no-self-assign.md
+          - no self compare: rules/no-self-compare.md
+          - no sequences: rules/no-sequences.md
+          - no shadow restricted names: rules/no-shadow-restricted-names.md
+          - no shadow: rules/no-shadow.md
+          - no space before semi: rules/no-space-before-semi.md
+          - no spaced func: rules/no-spaced-func.md
+          - no sparse arrays: rules/no-sparse-arrays.md
+          - no sync: rules/no-sync.md
+          - no tabs: rules/no-tabs.md
+          - no template curly in string: rules/no-template-curly-in-string.md
+          - no ternary: rules/no-ternary.md
+          - no this before super: rules/no-this-before-super.md
+          - no throw literal: rules/no-throw-literal.md
+          - no trailing spaces: rules/no-trailing-spaces.md
+          - no undef init: rules/no-undef-init.md
+          - no undef: rules/no-undef.md
+          - no undefined: rules/no-undefined.md
+          - no underscore dangle: rules/no-underscore-dangle.md
+          - no unexpected multiline: rules/no-unexpected-multiline.md
+          - no unmodified loop condition: rules/no-unmodified-loop-condition.md
+          - no unneeded ternary: rules/no-unneeded-ternary.md
+          - no unreachable: rules/no-unreachable.md
+          - no unsafe finally: rules/no-unsafe-finally.md
+          - no unsafe negation: rules/no-unsafe-negation.md
+          - no unused expressions: rules/no-unused-expressions.md
+          - no unused labels: rules/no-unused-labels.md
+          - no unused vars: rules/no-unused-vars.md
+          - no use before define: rules/no-use-before-define.md
+          - no useless call: rules/no-useless-call.md
+          - no useless catch: rules/no-useless-catch.md
+          - no useless computed key: rules/no-useless-computed-key.md
+          - no useless concat: rules/no-useless-concat.md
+          - no useless constructor: rules/no-useless-constructor.md
+          - no useless escape: rules/no-useless-escape.md
+          - no useless rename: rules/no-useless-rename.md
+          - no useless return: rules/no-useless-return.md
+          - no var: rules/no-var.md
+          - no void: rules/no-void.md
+          - no warning comments: rules/no-warning-comments.md
+          - no-whitespace before property: rules/no-whitespace-before-property.md
+          - no with: rules/no-with.md
+          - no wrap func: rules/no-wrap-func.md
+          - nonblock statement body position: rules/nonblock-statement-body-position.md
+          - object curly newline: rules/object-curly-newline.md
+          - object curly spacing: rules/object-curly-spacing.md
+          - object property newline: rules/object-property-newline.md
+          - object shorthand: rules/object-shorthand.md
+          - one-var-declaration per line: rules/one-var-declaration-per-line.md
+          - one var: rules/one-var.md
+          - operator assignment: rules/operator-assignment.md
+          - operator linebreak: rules/operator-linebreak.md
+          - padded blocks: rules/padded-blocks.md
+          - padding line between statements: rules/padding-line-between-statements.md
+          - prefer arrow callback: rules/prefer-arrow-callback.md
+          - prefer const: rules/prefer-const.md
+          - prefer destructuring: rules/prefer-destructuring.md
+          - prefer numeric literals: rules/prefer-numeric-literals.md
+          - prefer object spread: rules/prefer-object-spread.md
+          - prefer promise reject errors: rules/prefer-promise-reject-errors.md
+          - prefer reflect: rules/prefer-reflect.md
+          - prefer rest params: rules/prefer-rest-params.md
+          - prefer spread: rules/prefer-spread.md
+          - prefer template: rules/prefer-template.md
+          - quote props: rules/quote-props.md
+          - quotes: rules/quotes.md
+          - radix: rules/radix.md
+          - require atomic updates: rules/require-atomic-updates.md
+          - require await: rules/require-await.md
+          - require jsdoc: rules/require-jsdoc.md
+          - require unicode regexp: rules/require-unicode-regexp.md
+          - require yield: rules/require-yield.md
+          - rest spread spacing: rules/rest-spread-spacing.md
+          - semi spacing: rules/semi-spacing.md
+          - semi style: rules/semi-style.md
+          - semi: rules/semi.md
+          - sort imports: rules/sort-imports.md
+          - sort keys: rules/sort-keys.md
+          - sort vars: rules/sort-vars.md
+          - space after function name: rules/space-after-function-name.md
+          - space after keywords: rules/space-after-keywords.md
+          - space before blocks: rules/space-before-blocks.md
+          - space before function paren: rules/space-before-function-paren.md
+          - space before function parentheses: rules/space-before-function-parentheses.md
+          - space before keywords: rules/space-before-keywords.md
+          - space in brackets: rules/space-in-brackets.md
+          - space in parens: rules/space-in-parens.md
+          - space infix ops: rules/space-infix-ops.md
+          - space return throw case: rules/space-return-throw-case.md
+          - space unary ops: rules/space-unary-ops.md
+          - space unary word ops: rules/space-unary-word-ops.md
+          - spaced comment: rules/spaced-comment.md
+          - spaced line comment: rules/spaced-line-comment.md
+          - strict: rules/strict.md
+          - switch colon spacing: rules/switch-colon-spacing.md
+          - symbol description: rules/symbol-description.md
+          - template curly spacing: rules/template-curly-spacing.md
+          - template tag spacing: rules/template-tag-spacing.md
+          - unicode bom: rules/unicode-bom.md
+          - use isnan: rules/use-isnan.md
+          - valid jsdoc: rules/valid-jsdoc.md
+          - valid typeof: rules/valid-typeof.md
+          - vars on top: rules/vars-on-top.md
+          - wrap iife: rules/wrap-iife.md
+          - wrap regex: rules/wrap-regex.md
+          - yield star spacing: rules/yield-star-spacing.md
+          - yoda: rules/yoda.md

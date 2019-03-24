@@ -2,7 +2,7 @@
 
 ESLint v2.0.0 is the second major version release. As a result, there are some significant changes between how ESLint worked during its life in 0.x and 1.x and how it will work going forward. These changes are the direct result of feedback from the ESLint community of users and were not made without due consideration for the upgrade path. We believe that these changes make ESLint even better, and while some work is necessary to upgrade, we hope the pain of this upgrade is small enough that you will see the benefit of upgrading.
 
-**Important:** If you are upgrading from 0.x, please refer to [Migrating to 1.0.0](./migrating-to-1.0.0) as your starting point.
+**Important:** If you are upgrading from 0.x, please refer to [Migrating to 1.0.0](./migrating-to-1.0.0.md) as your starting point.
 
 ## Rule Schema Changes
 
@@ -10,17 +10,17 @@ Due to a quirk in the way rule schemas worked, it was possible that you'd need t
 
 ```js
 module.exports = {
-    "type": "array",
-    "items": [
+    type: "array",
+    items: [
         {
-            "enum": [0, 1, 2]
+            enum: [0, 1, 2]
         },
         {
-            "enum": ["always", "never"]
+            enum: ["always", "never"]
         }
     ],
-    "minItems": 1,
-    "maxItems": 2
+    minItems: 1,
+    maxItems: 2
 };
 ```
 
@@ -36,14 +36,14 @@ Here's what the schema from above looks like when properly converted:
 
 ```js
 module.exports = {
-    "type": "array",
-    "items": [
+    type: "array",
+    items: [
         {
-            "enum": ["always", "never"]
+            enum: ["always", "never"]
         }
     ],
-    "minItems": 0,
-    "maxItems": 1
+    minItems: 0,
+    maxItems: 1
 };
 ```
 
@@ -51,11 +51,11 @@ module.exports = {
 
 The following rules have been deprecated with new rules created to take their place. The following is a list of the removed rules and their replacements:
 
-* [no-arrow-condition](https://eslint.org/docs/rules/no-arrow-condition) is replaced by a combination of [no-confusing-arrow](https://eslint.org/docs/rules/no-confusing-arrow) and [no-constant-condition](https://eslint.org/docs/rules/no-constant-condition). Turn on both of these rules to get the same functionality as `no-arrow-condition`.
-* [no-empty-label](https://eslint.org/docs/rules/no-empty-label) is replaced by [no-labels](https://eslint.org/docs/rules/no-labels) with `{"allowLoop": true, "allowSwitch": true}` option.
-* [space-after-keywords](https://eslint.org/docs/rules/space-after-keywords) is replaced by [keyword-spacing](https://eslint.org/docs/rules/keyword-spacing).
-* [space-before-keywords](https://eslint.org/docs/rules/space-before-keywords) is replaced by [keyword-spacing](https://eslint.org/docs/rules/keyword-spacing).
-* [space-return-throw-case](https://eslint.org/docs/rules/space-return-throw-case) is replaced by [keyword-spacing](https://eslint.org/docs/rules/keyword-spacing).
+-   [no-arrow-condition](https://eslint.org/docs/rules/no-arrow-condition) is replaced by a combination of [no-confusing-arrow](https://eslint.org/docs/rules/no-confusing-arrow) and [no-constant-condition](https://eslint.org/docs/rules/no-constant-condition). Turn on both of these rules to get the same functionality as `no-arrow-condition`.
+-   [no-empty-label](https://eslint.org/docs/rules/no-empty-label) is replaced by [no-labels](https://eslint.org/docs/rules/no-labels) with `{"allowLoop": true, "allowSwitch": true}` option.
+-   [space-after-keywords](https://eslint.org/docs/rules/space-after-keywords) is replaced by [keyword-spacing](https://eslint.org/docs/rules/keyword-spacing).
+-   [space-before-keywords](https://eslint.org/docs/rules/space-before-keywords) is replaced by [keyword-spacing](https://eslint.org/docs/rules/keyword-spacing).
+-   [space-return-throw-case](https://eslint.org/docs/rules/space-return-throw-case) is replaced by [keyword-spacing](https://eslint.org/docs/rules/keyword-spacing).
 
 **To address:** You'll need to update your rule configurations to use the new rules. ESLint v2.0.0 will also warn you when you're using a rule that has been removed and will suggest the replacement rules. Hopefully, this will result in few surprises during the upgrade process.
 
@@ -75,7 +75,7 @@ Prior to 2.0.0, new global variables that were standardized as part of ES6 such 
 // In your .eslintrc
 {
     env: {
-        es6: true
+        es6: true;
     }
 }
 
@@ -87,40 +87,40 @@ Prior to 2.0.0, new global variables that were standardized as part of ES6 such 
 
 Prior to 2.0.0, the way to enable language options was by using `ecmaFeatures` in your configuration. In 2.0.0:
 
-* The `ecmaFeatures` property is now under a top-level `parserOptions` property.
-* All ECMAScript 6 `ecmaFeatures` flags have been removed in favor of a `ecmaVersion` property under `parserOptions` that can be set to 3, 5 (default), or 6.
-* The `ecmaFeatures.modules` flag has been replaced by a `sourceType` property under `parserOptions` which can be set to `"script"` (default) or `"module"` for ES6 modules.
+-   The `ecmaFeatures` property is now under a top-level `parserOptions` property.
+-   All ECMAScript 6 `ecmaFeatures` flags have been removed in favor of a `ecmaVersion` property under `parserOptions` that can be set to 3, 5 (default), or 6.
+-   The `ecmaFeatures.modules` flag has been replaced by a `sourceType` property under `parserOptions` which can be set to `"script"` (default) or `"module"` for ES6 modules.
 
 **To address:** If you are using any ECMAScript 6 feature flags in `ecmaFeatures`, you'll need to use `ecmaVersion: 6` instead. The ECMAScript 6 feature flags are:
 
-* `arrowFunctions` - enable [arrow functions](https://leanpub.com/understandinges6/read#leanpub-auto-arrow-functions)
-* `binaryLiterals` - enable [binary literals](https://leanpub.com/understandinges6/read#leanpub-auto-octal-and-binary-literals)
-* `blockBindings` - enable `let` and `const` (aka [block bindings](https://leanpub.com/understandinges6/read#leanpub-auto-block-bindings))
-* `classes` - enable classes
-* `defaultParams` - enable [default function parameters](https://leanpub.com/understandinges6/read/#leanpub-auto-default-parameters)
-* `destructuring` - enable [destructuring](https://leanpub.com/understandinges6/read#leanpub-auto-destructuring-assignment)
-* `forOf` - enable [`for-of` loops](https://leanpub.com/understandinges6/read#leanpub-auto-iterables-and-for-of)
-* `generators` - enable [generators](https://leanpub.com/understandinges6/read#leanpub-auto-generators)
-* `modules` - enable modules and global strict mode
-* `objectLiteralComputedProperties` - enable [computed object literal property names](https://leanpub.com/understandinges6/read#leanpub-auto-computed-property-names)
-* `objectLiteralDuplicateProperties` - enable [duplicate object literal properties](https://leanpub.com/understandinges6/read#leanpub-auto-duplicate-object-literal-properties) in strict mode
-* `objectLiteralShorthandMethods` - enable [object literal shorthand methods](https://leanpub.com/understandinges6/read#leanpub-auto-method-initializer-shorthand)
-* `objectLiteralShorthandProperties` - enable [object literal shorthand properties](https://leanpub.com/understandinges6/read#leanpub-auto-property-initializer-shorthand)
-* `octalLiterals` - enable [octal literals](https://leanpub.com/understandinges6/read#leanpub-auto-octal-and-binary-literals)
-* `regexUFlag` - enable the [regular expression `u` flag](https://leanpub.com/understandinges6/read#leanpub-auto-the-regular-expression-u-flag)
-* `regexYFlag` - enable the [regular expression `y` flag](https://leanpub.com/understandinges6/read#leanpub-auto-the-regular-expression-y-flag)
-* `restParams` - enable the [rest parameters](https://leanpub.com/understandinges6/read#leanpub-auto-rest-parameters)
-* `spread` - enable the [spread operator](https://leanpub.com/understandinges6/read#leanpub-auto-the-spread-operator) for arrays
-* `superInFunctions` - enable `super` references inside of functions
-* `templateStrings` - enable [template strings](https://leanpub.com/understandinges6/read/#leanpub-auto-template-strings)
-* `unicodeCodePointEscapes` - enable [code point escapes](https://leanpub.com/understandinges6/read/#leanpub-auto-escaping-non-bmp-characters)
+-   `arrowFunctions` - enable [arrow functions](https://leanpub.com/understandinges6/read#leanpub-auto-arrow-functions)
+-   `binaryLiterals` - enable [binary literals](https://leanpub.com/understandinges6/read#leanpub-auto-octal-and-binary-literals)
+-   `blockBindings` - enable `let` and `const` (aka [block bindings](https://leanpub.com/understandinges6/read#leanpub-auto-block-bindings))
+-   `classes` - enable classes
+-   `defaultParams` - enable [default function parameters](https://leanpub.com/understandinges6/read/#leanpub-auto-default-parameters)
+-   `destructuring` - enable [destructuring](https://leanpub.com/understandinges6/read#leanpub-auto-destructuring-assignment)
+-   `forOf` - enable [`for-of` loops](https://leanpub.com/understandinges6/read#leanpub-auto-iterables-and-for-of)
+-   `generators` - enable [generators](https://leanpub.com/understandinges6/read#leanpub-auto-generators)
+-   `modules` - enable modules and global strict mode
+-   `objectLiteralComputedProperties` - enable [computed object literal property names](https://leanpub.com/understandinges6/read#leanpub-auto-computed-property-names)
+-   `objectLiteralDuplicateProperties` - enable [duplicate object literal properties](https://leanpub.com/understandinges6/read#leanpub-auto-duplicate-object-literal-properties) in strict mode
+-   `objectLiteralShorthandMethods` - enable [object literal shorthand methods](https://leanpub.com/understandinges6/read#leanpub-auto-method-initializer-shorthand)
+-   `objectLiteralShorthandProperties` - enable [object literal shorthand properties](https://leanpub.com/understandinges6/read#leanpub-auto-property-initializer-shorthand)
+-   `octalLiterals` - enable [octal literals](https://leanpub.com/understandinges6/read#leanpub-auto-octal-and-binary-literals)
+-   `regexUFlag` - enable the [regular expression `u` flag](https://leanpub.com/understandinges6/read#leanpub-auto-the-regular-expression-u-flag)
+-   `regexYFlag` - enable the [regular expression `y` flag](https://leanpub.com/understandinges6/read#leanpub-auto-the-regular-expression-y-flag)
+-   `restParams` - enable the [rest parameters](https://leanpub.com/understandinges6/read#leanpub-auto-rest-parameters)
+-   `spread` - enable the [spread operator](https://leanpub.com/understandinges6/read#leanpub-auto-the-spread-operator) for arrays
+-   `superInFunctions` - enable `super` references inside of functions
+-   `templateStrings` - enable [template strings](https://leanpub.com/understandinges6/read/#leanpub-auto-template-strings)
+-   `unicodeCodePointEscapes` - enable [code point escapes](https://leanpub.com/understandinges6/read/#leanpub-auto-escaping-non-bmp-characters)
 
 If you're using any of these flags, such as:
 
 ```js
 {
     ecmaFeatures: {
-        arrowFunctions: true
+        arrowFunctions: true;
     }
 }
 ```
@@ -130,7 +130,7 @@ Then you should enable ES6 using `ecmaVersion`:
 ```js
 {
     parserOptions: {
-        ecmaVersion: 6
+        ecmaVersion: 6;
     }
 }
 ```
@@ -140,7 +140,7 @@ If you're using any non-ES6 flags in `ecmaFeatures`, you need to move those insi
 ```js
 {
     ecmaFeatures: {
-        jsx: true
+        jsx: true;
     }
 }
 ```
@@ -151,7 +151,7 @@ Then you should move `ecmaFeatures` under `parserOptions`:
 {
     parserOptions: {
         ecmaFeatures: {
-            jsx: true
+            jsx: true;
         }
     }
 }
@@ -162,7 +162,7 @@ If you were using `ecmaFeatures.modules` to enable ES6 module support like this:
 ```js
 {
     ecmaFeatures: {
-        modules: true
+        modules: true;
     }
 }
 ```
@@ -170,7 +170,7 @@ If you were using `ecmaFeatures.modules` to enable ES6 module support like this:
 ```js
 {
     parserOptions: {
-        sourceType: "module"
+        sourceType: "module";
     }
 }
 ```
@@ -207,17 +207,17 @@ If you're not using `ecmaFeatures` in your configuration or your custom/plugin r
 
 In 2.0.0, the following 11 rules were added to `"eslint:recommended"`.
 
-* [constructor-super](https://eslint.org/docs/rules/constructor-super)
-* [no-case-declarations](https://eslint.org/docs/rules/no-case-declarations)
-* [no-class-assign](https://eslint.org/docs/rules/no-class-assign)
-* [no-const-assign](https://eslint.org/docs/rules/no-const-assign)
-* [no-dupe-class-members](https://eslint.org/docs/rules/no-dupe-class-members)
-* [no-empty-pattern](https://eslint.org/docs/rules/no-empty-pattern)
-* [no-new-symbol](https://eslint.org/docs/rules/no-new-symbol)
-* [no-self-assign](https://eslint.org/docs/rules/no-self-assign)
-* [no-this-before-super](https://eslint.org/docs/rules/no-this-before-super)
-* [no-unexpected-multiline](https://eslint.org/docs/rules/no-unexpected-multiline)
-* [no-unused-labels](https://eslint.org/docs/rules/no-unused-labels)
+-   [constructor-super](https://eslint.org/docs/rules/constructor-super)
+-   [no-case-declarations](https://eslint.org/docs/rules/no-case-declarations)
+-   [no-class-assign](https://eslint.org/docs/rules/no-class-assign)
+-   [no-const-assign](https://eslint.org/docs/rules/no-const-assign)
+-   [no-dupe-class-members](https://eslint.org/docs/rules/no-dupe-class-members)
+-   [no-empty-pattern](https://eslint.org/docs/rules/no-empty-pattern)
+-   [no-new-symbol](https://eslint.org/docs/rules/no-new-symbol)
+-   [no-self-assign](https://eslint.org/docs/rules/no-self-assign)
+-   [no-this-before-super](https://eslint.org/docs/rules/no-this-before-super)
+-   [no-unexpected-multiline](https://eslint.org/docs/rules/no-unexpected-multiline)
+-   [no-unused-labels](https://eslint.org/docs/rules/no-unused-labels)
 
 **To address:** If you don't want to be notified by those rules, you can simply disable those rules.
 
@@ -246,15 +246,15 @@ We found some bugs in our scope analysis that needed to be addressed. Specifical
 
 Originally, `Variable` objects and `Reference` objects refer each other:
 
-* `Variable#references` property is an array of `Reference` objects which are referencing the variable.
-* `Reference#resolved` property is a `Variable` object which are referenced.
+-   `Variable#references` property is an array of `Reference` objects which are referencing the variable.
+-   `Reference#resolved` property is a `Variable` object which are referenced.
 
 But until 1.x, the following variables and references had the wrong value (empty) in those properties:
 
-* `var` declarations in the global.
-* `function` declarations in the global.
-* Variables defined in config files.
-* Variables defined in `/* global */` comments.
+-   `var` declarations in the global.
+-   `function` declarations in the global.
+-   Variables defined in config files.
+-   Variables defined in `/* global */` comments.
 
 Now, those variables and references have correct values in these properties.
 
@@ -307,13 +307,13 @@ The rule `func-style` has a default configuration of `"expression"`, but in ESLi
 
 ESLint 2.0.0 removes these conflicting defaults, and so you may begin seeing linting errors related to these rules.
 
-**To address:**  If you would like to maintain the previous behavior, update your configuration for `no-multiple-empty-lines` by adding `{"max": 2}`, and change `func-style` to `"declaration"`. For example:
+**To address:** If you would like to maintain the previous behavior, update your configuration for `no-multiple-empty-lines` by adding `{"max": 2}`, and change `func-style` to `"declaration"`. For example:
 
 ```json
 {
     "extends": "eslint:recommended",
     "rules": {
-        "no-multiple-empty-lines": [2, {"max": 2}],
+        "no-multiple-empty-lines": [2, { "max": 2 }],
         "func-style": [2, "declaration"]
     }
 }
@@ -347,7 +347,7 @@ var sourceCode = new SourceCode(text, ast);
 
 ## Rule Changes
 
-* [`strict`](../rules/strict.md) - defaults to `"safe"` (previous default was `"function"`)
+-   [`strict`](../rules/strict.md) - defaults to `"safe"` (previous default was `"function"`)
 
 ## Plugins No Longer Have Default Configurations
 

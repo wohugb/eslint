@@ -59,14 +59,14 @@ The first line of the commit message (the summary) must have a specific format. 
 
 The `Tag` is one of the following:
 
-* `Fix` - for a bug fix.
-* `Update` - either for a backwards-compatible enhancement or for a rule change that adds reported problems.
-* `New` - implemented a new feature.
-* `Breaking` - for a backwards-incompatible enhancement or feature.
-* `Docs` - changes to documentation only.
-* `Build` - changes to build process only.
-* `Upgrade` - for a dependency upgrade.
-* `Chore` - for refactoring, adding tests, etc. (anything that isn't user-facing).
+-   `Fix` - for a bug fix.
+-   `Update` - either for a backwards-compatible enhancement or for a rule change that adds reported problems.
+-   `New` - implemented a new feature.
+-   `Breaking` - for a backwards-incompatible enhancement or feature.
+-   `Docs` - changes to documentation only.
+-   `Build` - changes to build process only.
+-   `Upgrade` - for a dependency upgrade.
+-   `Chore` - for refactoring, adding tests, etc. (anything that isn't user-facing).
 
 Use the [labels of the issue you are working on](working-on-issues.md#issue-labels) to determine the best tag.
 
@@ -105,14 +105,14 @@ If there are any failing tests, update your code until all tests pass.
 
 With your code ready to go, this is a good time to double-check your submission to make sure it follows our conventions. Here are the things to check:
 
-* Make sure your commit is formatted correctly.
-* The pull request must have a description. The description should explain what you did and how its effects can be seen.
-* The commit message is properly formatted.
-* The change introduces no functional regression. Be sure to run `npm test` to verify your changes before submitting a pull request.
-* Make separate pull requests for unrelated changes. Large pull requests with multiple unrelated changes may be closed without merging.
-* All changes must be accompanied by tests, even if the feature you're working on previously had no tests.
-* All user-facing changes must be accompanied by appropriate documentation.
-* Follow the [Code Conventions](../code-conventions.html).
+-   Make sure your commit is formatted correctly.
+-   The pull request must have a description. The description should explain what you did and how its effects can be seen.
+-   The commit message is properly formatted.
+-   The change introduces no functional regression. Be sure to run `npm test` to verify your changes before submitting a pull request.
+-   Make separate pull requests for unrelated changes. Large pull requests with multiple unrelated changes may be closed without merging.
+-   All changes must be accompanied by tests, even if the feature you're working on previously had no tests.
+-   All user-facing changes must be accompanied by appropriate documentation.
+-   Follow the [Code Conventions](../code-conventions.md).
 
 ### Step 6: Push your changes<a name="step6"></a>
 
